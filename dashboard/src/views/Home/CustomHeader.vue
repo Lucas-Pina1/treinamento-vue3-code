@@ -3,14 +3,24 @@
     <div class="header-group">
       <div class="flex items-center justify-between py-10">
         <div class="w-28 lg:w-36">
-          <img class="w-full" src="../../assets/icon/logo_white.svg" alt="logo">
+          <img
+            class="w-full"
+            src="../../assets/icon/logo_white.svg"
+            alt="logo"
+          />
         </div>
 
         <div class="flex">
-          <button class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
+          <button
+            @click="emitAccountCreate"
+            class="px-6 py-2 font-bold rounded-full text-white focus:outline-none"
+          >
             Crie uma conta
           </button>
-          <button class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
+          <button
+            @click="emitLogin"
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+          >
             Entrar
           </button>
         </div>
@@ -18,16 +28,19 @@
 
       <div class="flex flex-col mt-28">
         <h1 class="text-4xl font-black text-white">
-          Tenha um feedback <br>
-          E faça seus clientes mais <br class="hidden lg:inline-block">
+          Tenha um feedback <br />
+          E faça seus clientes mais <br class="hidden lg:inline-block" />
           felizes!
         </h1>
         <p class="text-lg font-medium text-white">
-          Receba ideias, reclamações e feedbacks com um <br class="hidden lg:inline-block">
+          Receba ideias, reclamações e feedbacks com um
+          <br class="hidden lg:inline-block" />
           simples widget na pagina.
         </p>
         <div>
-          <button class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
+          <button
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+          >
             Crie uma conta grátis
           </button>
         </div>
@@ -37,7 +50,11 @@
 </template>
 
 <script setup>
+import { defineEmits } from "vue";
 
+const emit = defineEmits(["login", "create-account"]);
+const emitLogin = () => emit("login");
+const emitAccountCreate = () => emit("create-account");
 </script>
 
 <style lang="postcss" scoped>
@@ -48,14 +65,14 @@
 
 .header-group {
   @apply flex flex-col w-4/5 max-w-6xl;
+}
 
-  @media (min-width: 640px) {
-    .header-group {
-      background-image: url(../../assets/img/blue_balloons.png);
-      background-size: 628px;
-      background-position: 90% 100%;
-      background-repeat: no-repeat;
-    }
+@media (min-width: 640px) {
+  .header-group {
+    background-image: url(../../assets/img/blue_balloons.png);
+    background-size: 628px;
+    background-position: 90% 100%;
+    background-repeat: no-repeat;
   }
 }
 </style>

@@ -11,9 +11,12 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 import CustomHeader from "./CustomHeader.vue";
-import ContactHome from "./ContactHome.vue";
+import ContactHome from "./Contact.vue";
+
+import { useModal } from "../../hooks/useModal";
 
 const router = useRouter();
+const modal = useModal();
 
 onMounted(() => {
   const token = window.localStorage.getItem("token");
@@ -21,8 +24,17 @@ onMounted(() => {
   if (token) {
     router.push({ name: "Feedbacks" });
   }
-}),
-  function handleLogin() { };
+});
 
-function handleAccountCreate() { }
+function handleLogin() {
+  modal.open({
+    component: "ModalLogin",
+  });
+}
+
+function handleAccountCreate() {
+  modal.open({
+    component: "ModalAccountCreate",
+  });
+}
 </script>
