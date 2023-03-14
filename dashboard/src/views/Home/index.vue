@@ -1,6 +1,6 @@
 <template>
-  <custom-Header @create-account="handleAccountCreate" @login="handleLogin" />
-  <contact-Home />
+  <CustomHeader @create-account="handleAccountCreate" @login="handleLogin" />
+  <contact/>
   <footer class="flex justify-center py-10 bg-brand-gray">
     <p class="font-medium text-center text-gray-800">feddback © 2023</p>
   </footer>
@@ -11,7 +11,7 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 import CustomHeader from "./CustomHeader.vue";
-import ContactHome from "./Contact.vue";
+import Contact from "./Contact.vue";
 
 import { useModal } from "../../hooks/useModal";
 

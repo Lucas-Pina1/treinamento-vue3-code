@@ -39,7 +39,7 @@
         </p>
         <div>
           <button
-            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+            class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main focus:outline-none"
           >
             Crie uma conta grátis
           </button>
@@ -62,7 +62,6 @@ const emitAccountCreate = () => emit("create-account");
   @apply bg-brand-main w-full flex justify-center;
   height: 700px;
 }
-
 .header-group {
   @apply flex flex-col w-4/5 max-w-6xl;
 }
