@@ -28,7 +28,7 @@
         </span>
       </label>
 
-      <label class="block">
+      <label class="block mt-9">
         <span class="text-lg font-medium text-gray-800">Senha</span>
         <input
           v-model="state.password.value"
@@ -63,18 +63,26 @@
 
 <script setup>
 import { reactive } from "vue";
+import { useField } from "vee-validate";
 import { useModal } from "../../hooks/useModal";
+import { validateEmptyAddLength3 } from "../../utils/validators";
+
+const { value: emailValue, errorMenssage: emailErrorMenssage } =
+  useField("email");
+
+const { value: passwordValue, errorMenssage: passwordErrorMenssage } =
+  useField("password", validateEmptyAddLength3);
 
 const state = reactive({
   hasErrors: false,
   isLoading: false,
   email: {
-    value: "",
-    errorMessage: "",
+    value: emailValue,
+    errorMessage: emailErrorMenssage,
   },
   password: {
-    value: "",
-    errorMessage: "",
+    value: passwordValue,
+    errorMessage: passwordErrorMenssage,
   },
 });
 
