@@ -18,16 +18,22 @@
   </teleport>
 </template>
 
-<script></script>
-
 <script setup>
-import { reactive, onMounted, onBeforeUnmount } from "vue";
+import { reactive, onMounted, defineAsyncComponent , onBeforeUnmount } from "vue";
 
 import { useModal } from "../../hooks/useModal";
 
 const DEFAULT_WIDTH = "w-3/4 lg:w-1/3";
 
 const modal = useModal();
+
+const ModalLogin = defineAsyncComponent(() =>
+  import("../ModalLogin/index.vue")
+);
+
+const ModalAccountCreate = defineAsyncComponent(() =>
+  import("../ModalAccountCreate/index.vue")
+);
 
 const state = reactive({
   isActive: false,
@@ -45,7 +51,6 @@ onBeforeUnmount(() => {
 });
 
 function handleModalToogle(payload) {
-  console.log(payload);
   if (payload.status) {
     state.component = payload.component;
     state.props = payload.props;
@@ -60,16 +65,6 @@ function handleModalToogle(payload) {
 </script>
 
 <script>
-import { defineAsyncComponent } from "vue";
-
-const ModalLogin = defineAsyncComponent(() =>
-  import("../ModalLogin/index.vue")
-);
-
-const ModalAccountCreate = defineAsyncComponent(() =>
-  import("../ModalAccountCreate/index.vue")
-);
-
 export default {
   components: { ModalLogin, ModalAccountCreate },
 };

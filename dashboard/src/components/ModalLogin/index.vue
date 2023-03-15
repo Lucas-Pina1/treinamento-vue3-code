@@ -55,7 +55,8 @@
         :disabled="state.isLoading"
         type="submit"
       >
-        Entrar
+        <Icon v-if="state.isLoading" name="Loading" class="animate-spin" />
+        <span v-else>Entrar</span>
       </button>
     </form>
   </div>
@@ -66,12 +67,13 @@ import { reactive } from "vue";
 import { useField } from "vee-validate";
 import { useToast } from "vue-toastification";
 import { useModal } from "../../hooks/useModal";
+import Icon from "../icons/index.vue";
 import {
   validateEmptyAddLength3,
   validateEmptyAndEmail,
 } from "../../utils/validators";
 import services from "../../services";
-import useRouter from "vue-router";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 const toast = useToast();
