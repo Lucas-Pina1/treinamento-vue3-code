@@ -9,3 +9,17 @@ export function validateEmptyAddLength3(value) {
 
   return true;
 }
+
+export function validateEmptyAndEmail(value) {
+  const isValidEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i.test(value);
+
+  if (!value) {
+    return "Esse campo é obrigatorio";
+  }
+
+  if (!isValidEmail) {
+    return "*Este campo precisa ser um e-mail";
+  }
+  
+  return true;
+}
