@@ -8,6 +8,7 @@ import { watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import ModalFactory from "./components/ModalFactory/Index.vue";
 import services from "./services";
+import { setCurrentUser } from "./store/user";
 
 const router = useRouter();
 const route = useRoute();
@@ -23,7 +24,7 @@ watch(
       }
 
       const { data } = await services.users.getMe();
-      console.log("Data", data);
+      setCurrentUser(data);
     }
   }
 );
