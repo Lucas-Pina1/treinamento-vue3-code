@@ -6,6 +6,7 @@
 import { defineProps } from "vue";
 import Loading from "./Loading.vue";
 import Copy from "./Copy.vue";
+import ChevronDown from "./ChevronDown.vue";
 
 const props = defineProps({
   name: { type: String, required: true },
@@ -14,6 +15,6 @@ const props = defineProps({
 
 <script>
 export default {
-  components: { Loading, Copy },
+  components: { Loading, Copy, ChevronDown },
 };
 </script>
