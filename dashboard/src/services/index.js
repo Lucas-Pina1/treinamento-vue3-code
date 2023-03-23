@@ -3,6 +3,7 @@ import { router } from "vue-router";
 import { setGlobalLoading } from "../store/global";
 import AuthService from "./auth";
 import UsersService from "./users";
+import FeedbacksServices from "./feedbacks";
 
 const API_ENVS = {
   production: "",
@@ -50,4 +51,5 @@ httpClient.interceptors.response.use(
 export default {
   auth: AuthService(httpClient),
   users: UsersService(httpClient),
+  feedbacks: FeedbacksServices(httpClient),
 };
