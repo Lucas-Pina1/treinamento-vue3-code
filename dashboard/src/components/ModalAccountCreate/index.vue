@@ -88,7 +88,7 @@ import { useToast } from "vue-toastification";
 import { useModal } from "../../hooks/useModal";
 import Icon from "../icons/index.vue";
 import {
-  validateEmptyAddLength3,
+  validateEmptyAndLength3,
   validateEmptyAndEmail,
 } from "../../utils/validators";
 import services from "../../services";
@@ -104,12 +104,12 @@ const { value: emailValue, errorMenssage: emailErrorMenssage } = useField(
 
 const { value: nameValue, errorMenssage: nameErrorMenssage } = useField(
   "name",
-  validateEmptyAddLength3
+  validateEmptyAndLength3
 );
 
 const { value: passwordValue, errorMenssage: passwordErrorMenssage } = useField(
   "password",
-  validateEmptyAddLength3
+  validateEmptyAndLength3
 );
 
 const state = reactive({

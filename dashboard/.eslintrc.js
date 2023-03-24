@@ -7,8 +7,9 @@ module.exports = {
       files: [
         "**/__tests__/*.{cy,spec}.{js,ts,jsx,tsx}",
         "cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}",
+        "**/*.spec.js",
       ],
-      extends: ["plugin:cypress/recommended", 'plugin:vue/vue3-recommended'],
+      extends: ["plugin:cypress/recommended", "plugin:vue/vue3-recommended"],
     },
   ],
   parserOptions: {
@@ -17,7 +18,7 @@ module.exports = {
   env: {
     node: true,
   },
-  "rules": {
-    "vue/multi-word-component-names": "off"
-  }
+  rules: {
+    "vue/multi-word-component-names": "off",
+  },
 };
