@@ -1,24 +1,27 @@
-/* eslint-env node */
 module.exports = {
   root: true,
-  extends: ["plugin:vue/vue3-essential", "eslint:recommended"],
+  env: {
+    node: true
+  },
+  extends: [
+    'plugin:vue/vue3-essential',
+    '@vue/standard'
+  ],
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+  },
   overrides: [
     {
       files: [
-        "**/__tests__/*.{cy,spec}.{js,ts,jsx,tsx}",
-        "cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}",
-        "**/*.spec.js",
+        '**/*.spec.js'
       ],
-      extends: ["plugin:cypress/recommended", "plugin:vue/vue3-recommended"],
-    },
-  ],
-  parserOptions: {
-    ecmaVersion: "latest",
-  },
-  env: {
-    node: true,
-  },
-  rules: {
-    "vue/multi-word-component-names": "off",
-  },
-};
+      env: {
+        jest: true
+      }
+    }
+  ]
+}
