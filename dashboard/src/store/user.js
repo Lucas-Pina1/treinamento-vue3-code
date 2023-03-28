@@ -1,20 +1,26 @@
-import { reactive } from "vue";
+import { reactive } from 'vue'
 
-const state = reactive({
-  currentUser: {},
-});
-
-export default state;
-
-export function cleanCurrentUser() {
-  state.currentUser = {};
+const userInitialState = {
+  currentUser: {}
 }
 
-export function setCurrentUser(user) {
-  state.currentUser = user;
+let state = reactive(userInitialState)
+
+export default state
+
+export function resetUserStore () {
+  state = reactive(userInitialState)
 }
 
-export function setApiKey(apiKey) {
-  const currentUser = { ...state.currentUser, apiKey };
-  state.currentUser = currentUser;
+export function cleanCurrentUser () {
+  state.currentUser = {}
+}
+
+export function setCurrentUser (user) {
+  state.currentUser = user
+}
+
+export function setApiKey (apiKey) {
+  const currentUser = { ...state.currentUser, apiKey }
+  state.currentUser = currentUser
 }
