@@ -30,27 +30,27 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-import useStore from "../../hooks/useStore";
-import { cleanCurrentUser } from "../../store/user";
+import useStore from '../../hooks/useStore'
+import { cleanCurrentUser } from '../../store/user'
 
-const router = useRouter();
+const router = useRouter()
 
-const store = useStore("User");
+const store = useStore('User')
 
 const logoutLabel = computed(() => {
   if (!store.currentUser.name) {
-    return "...";
+    return '...'
   } else {
-    return `${store.currentUser.name} (sair)`;
+    return `${store.currentUser.name} (sair)`
   }
-});
+})
 
-function handleLogout() {
-  window.localStorage.removeItem("token");
-  cleanCurrentUser();
-  router.push({ name: "Home" });
+function handleLogout () {
+  window.localStorage.removeItem('token')
+  cleanCurrentUser()
+  router.push({ name: 'Home' })
 }
 </script>
